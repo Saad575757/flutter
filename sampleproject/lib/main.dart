@@ -5,6 +5,7 @@ void main(){
   runApp(MaterialApp(
     title: "First App",
     home: Homepage(),
+    theme: ThemeData( primarySwatch: Colors.teal),
        //container have a properties like div cmmand in Html.
   ));
 }
@@ -19,7 +20,8 @@ class Homepage extends StatelessWidget {
         appBar: AppBar(
           title: Text("first App"),
         ),
-        body: Padding(padding: const EdgeInsets.all(20),
+        body:
+         Padding(padding: const EdgeInsets.all(20),
          child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
@@ -91,7 +93,48 @@ class Homepage extends StatelessWidget {
           
         ),
         ),
-        ),  
+        ), 
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              UserAccountsDrawerHeader(accountName: Text("Saad"), accountEmail: Text("Smartysaad50@gmail.com")
+              , currentAccountPicture: CircleAvatar(backgroundImage: NetworkImage("https://media.istockphoto.com/photos/freedom-chains-that-transform-into-birds-charge-concept-picture-id1322104312?b=1&k=20&m=1322104312&s=170667a&w=0&h=VQyPkFkMKmo0e4ixjhiOLjiRs_ZiyKR_4SAsagQQdkk=")),),
+              ListTile(
+                leading: Icon(Icons.person),
+                title: Text("Accounts"),
+                subtitle: Text("Account name"),
+                trailing: Icon(Icons.edit),
+              ),
+              ListTile(
+                leading: Icon(Icons.mail),
+                title:Text("Email") ,
+                subtitle: Text("ABC@gmail.com"),
+                trailing: Icon(Icons.mail_rounded),
+              ),
+              ListTile(
+                leading: Icon(Icons.contact_page),
+                title:Text("Phone number") ,
+                subtitle: Text("+923484630117"),
+                trailing: Icon(Icons.phone),
+              ),
+              ListTile(
+                leading: Icon(Icons.feedback_outlined),
+                title:Text("feedback") ,
+                subtitle: Text("It's good to using this app"),
+                trailing: Icon(Icons.feed),
+              ),
+             
+
+              
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(onPressed: () {}, 
+        child: Icon(Icons.message ),
+        ),
+
+
       );
 
 
